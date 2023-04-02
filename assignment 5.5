@@ -1,0 +1,31 @@
+class Account:
+    def __init__(self, title=None, balance=0):
+        self.title = title
+        self.balance = balance
+
+
+    def Withdrawal(self, amount):
+        self.balance = self.balance - amount
+
+
+    def deposit(self, amount):
+        self.balance = self.balance + amount
+
+    def  getbalance(self):
+        return self.balance
+
+
+class SavingsAccount(Account):
+    def __init__(self, title=None, balance=0, intertestRate=0):
+        super().__init__(title, balance)
+        self.interestRare = intertestRate
+
+    def interestAmount(self):
+        return (self.balance * self.interestRare/100)
+
+
+obj1 = SavingsAccount("starc", 7000, 10)
+print("initial balance:", obj1.getbalance())
+obj1.Withdrawal(1000)
+obj1.interestAmount
+print("interestAmount:", obj1.interestRare)           
